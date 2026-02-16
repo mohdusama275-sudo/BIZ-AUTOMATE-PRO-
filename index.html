@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
+    <title>BizAutomate Pro | Enterprise Business Solutions</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ===== LUXURY PREMIUM COLOR PALETTE ===== */
+        :root {
+            --gold: #D4AF37;
+            --saffron: #FF9933;
+            --burgundy: #800020;
+            --cream: #FFFDD0;
+            --charcoal: #36454F;
+            --black: #0A0A0A;
+            --white: #FFFFFF;
+            --champagne: #F7E7CE;
+            --copper: #B87333;
+        }
+        
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--black);
+            color: var(--cream);
+            line-height: 1.6;
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            width: 100%;
+        }
+        
+        /* ===== PRELOADER ===== */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--black);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 1s ease;
+        }
+        
+        .preloader-content {
+            text-align: center;
+            padding: 0 20px;
+        }
+        
+        .preloader h1 {
+            font-size: 56px;
+            color: var(--gold);
+            margin-bottom: 20px;
+            animation: fadeIn 2s ease;
+            letter-spacing: 8px;
+        }
+        
+        .preloader p {
+            color: var(--cream);
+            letter-spacing: 6px;
+            animation: fadeIn 2.5s ease;
+            font-size: 18px;
+        }
+        
+        .preloader span {
+            color: var(--saffron);
+        }
+        
+        /* ===== CUSTOM CURSOR ===== */
+        .cursor {
+            width: 10px;
+            height: 10px;
+            background: var(--gold);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.2s ease;
+            box-shadow: 0 0 20px var(--gold);
+        }
+        
+        /* ===== MOBILE MENU ===== */
+        .mobile-menu-btn {
+            display: none;
+            font-size: 28px;
+            color: var(--gold);
+            cursor: pointer;
+            background: transparent;
+            border: none;
+            transition: color 0.3s;
+            z-index: 1001;
+        }
+        
+        /* ===== NAVIGATION ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 30px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: all 0.5s ease;
+            background: linear-gradient(to bottom, rgba(10,10,10,0.95), transparent);
+        }
+        
+        .navbar.scrolled {
+            background: var(--black);
+            padding: 20px 60px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.5);
+        }
+        
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 4px;
+            text-decoration: none;
+            line-height: 1.2;
+        }
+        
+        .logo span {
+            color: var(--cream);
+            font-size: 14px;
+            display: block;
+            letter-spacing: 3px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 40px;
+        }
+        
+        .nav-links a {
+            color: var(--cream);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            transition: color 0.3s;
+            position: relative;
+            white-space: nowrap;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .book-btn {
+            background: transparent;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            padding: 12px 30px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        
+        .book-btn:hover {
+            background: var(--gold);
+            color: var(--black);
+        }
+        
+        /* ===== HERO SECTION ===== */
+        .hero {
+            height: 100vh;
+            min-height: 600px;
+            background: linear-gradient(rgba(10,10,10,0.7), rgba(10,10,10,0.9)),
+                        url('https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            width: 100%;
+        }
+        
+        .hero-content {
+            max-width: 1000px;
+            padding: 20px;
+            width: 100%;
+        }
+        
+        .hero-subtitle {
+            font-size: 18px;
+            letter-spacing: 10px;
+            color: var(--gold);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        
+        .hero-title {
+            font-size: 90px;
+            font-weight: 700;
+            color: var(--cream);
+            margin-bottom: 20px;
+            line-height: 1.1;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+        }
+        
+        .hero-title span {
+            color: var(--gold);
+        }
+        
+        .hero-year {
+            font-size: 24px;
+            color: var(--saffron);
+            letter-spacing: 8px;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+        
+        .hero-desc {
+            font-size: 18px;
+            color: var(--cream);
+            margin-bottom: 40px;
+            font-weight: 300;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 15px;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+        
+        .btn-primary {
+            background: var(--gold);
+            color: var(--black);
+            padding: 15px 40px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            border: 2px solid var(--gold);
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--gold);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--cream);
+            padding: 15px 40px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            border: 2px solid var(--cream);
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        
+        .btn-secondary:hover {
+            background: var(--cream);
+            color: var(--black);
+        }
+        
+        /* ===== FEATURES SECTION ===== */
+        .features {
+            padding: 120px 0;
+            background: linear-gradient(rgba(10,10,10,0.95), rgba(10,10,10,0.95)),
+                        url('https://images.pexels.com/photos/1181354/pexels-photo-1181354.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-subtitle {
+            color: var(--gold);
+            font-size: 14px;
+            letter-spacing: 4px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        
+        .section-title {
+            font-size: 48px;
+            color: var(--cream);
+            margin-bottom: 20px;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background: rgba(255,255,255,0.05);
+            padding: 30px;
+            border: 1px solid rgba(212,175,55,0.2);
+            transition: transform 0.3s;
+            text-align: center;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold);
+        }
+        
+        .feature-icon {
+            color: var(--gold);
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .feature-title {
+            color: var(--cream);
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+        
+        .feature-card p {
+            color: rgba(255,255,255,0.7);
+            font-size: 14px;
+            line-height: 1.8;
+        }
+        
+        /* ===== PRICING SECTION ===== */
+        .pricing {
+            padding: 120px 0;
+            background: var(--black);
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .pricing-card {
+            background: rgba(255,255,255,0.05);
+            padding: 40px 30px;
+            text-align: center;
+            border: 1px solid rgba(212,175,55,0.2);
+            position: relative;
+            transition: transform 0.3s;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold);
+        }
+        
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gold);
+            color: var(--black);
+            padding: 5px 20px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+        
+        .pricing-card h3 {
+            color: var(--gold);
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .price {
+            font-size: 48px;
+            color: var(--cream);
+            font-weight: 700;
+            margin: 20px 0;
+        }
+        
+        .price span {
+            font-size: 14px;
+            color: rgba(255,255,255,0.5);
+        }
+        
+        .features-list {
+            list-style: none;
+            margin: 30px 0;
+        }
+        
+        .features-list li {
+            color: rgba(255,255,255,0.7);
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(212,175,55,0.2);
+        }
+        
+        .features-list li i {
+            color: var(--gold);
+            margin-right: 10px;
+        }
+        
+        .pricing-card .btn-primary {
+            display: inline-block;
+            margin-top: 20px;
+        }
+        
+        /* ===== CONTACT SECTION ===== */
+        .contact {
+            padding: 120px 0;
+            background: linear-gradient(rgba(10,10,10,0.95), rgba(10,10,10,0.95)),
+                        url('https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+        
+        .contact-info h2 {
+            color: var(--gold);
+            margin-bottom: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 15px;
+            background: rgba(255,255,255,0.05);
+            margin-bottom: 15px;
+            border: 1px solid rgba(212,175,55,0.2);
+        }
+        
+        .contact-item i {
+            color: var(--gold);
+            font-size: 20px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--gold);
+        }
+        
+        .contact-form {
+            background: rgba(255,255,255,0.05);
+            padding: 40px;
+            border: 1px solid var(--gold);
+        }
+        
+        .contact-form h3 {
+            color: var(--gold);
+            margin-bottom: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(212,175,55,0.3);
+            color: var(--cream);
+            font-size: 16px;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+        
+        .submit-btn {
+            background: var(--gold);
+            color: var(--black);
+            padding: 15px 40px;
+            border: none;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+        
+        .submit-btn:hover {
+            background: transparent;
+            color: var(--gold);
+            border: 1px solid var(--gold);
+        }
+        
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--black);
+            padding: 80px 0 30px;
+            border-top: 1px solid rgba(212,175,55,0.2);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+        
+        .footer-col h3 {
+            color: var(--gold);
+            font-size: 24px;
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--gold);
+        }
+        
+        .footer-col p {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 15px;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            color: var(--cream);
+            font-size: 20px;
+            transition: all 0.3s;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .social-links a:hover {
+            color: var(--black);
+            background: var(--gold);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.6);
+            font-size: 14px;
+        }
+        
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease;
+        }
+        
+        /* ===== 🌟🌟🌟 ENHANCED MOBILE RESPONSIVE - FULLY FIXED 🌟🌟🌟 ===== */
+        
+        /* Large Tablets (1200px and below) */
+        @media (max-width: 1200px) {
+            .container {
+                padding: 0 30px;
+            }
+            
+            .hero-title {
+                font-size: 70px;
+            }
+            
+            .features-grid,
+            .pricing-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        /* Tablets (992px and below) - MOBILE MENU ACTIVATES */
+        @media (max-width: 992px) {
+            .navbar {
+                padding: 20px 30px;
+            }
+            
+            .nav-links {
+                display: none !important;
+            }
+            
+            .mobile-menu-btn {
+                display: block !important;
+            }
+            
+            .nav-links.active {
+                display: flex !important;
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                height: auto;
+                background: var(--black);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 20px;
+                padding: 30px;
+                border-bottom: 2px solid var(--gold);
+                border-top: 2px solid var(--gold);
+                box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+                z-index: 999;
+                animation: slideDown 0.3s ease;
+            }
+            
+            .nav-links.active a {
+                font-size: 16px;
+                padding: 12px;
+                width: 100%;
+                text-align: center;
+                border-bottom: 1px solid rgba(212,175,55,0.2);
+            }
+            
+            .nav-links.active a:last-child {
+                border-bottom: none;
+            }
+            
+            @keyframes slideDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            
+            .book-btn {
+                margin-right: 50px;
+            }
+            
+            .features-grid,
+            .pricing-grid,
+            .contact-grid,
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .footer-col h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .footer-col {
+                text-align: center;
+            }
+        }
+        
+        /* Mobile (768px and below) */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+            
+            .navbar {
+                padding: 15px 20px;
+            }
+            
+            .logo {
+                font-size: 28px;
+            }
+            
+            .logo span {
+                font-size: 10px;
+            }
+            
+            .book-btn {
+                padding: 8px 16px;
+                font-size: 12px;
+                margin-right: 40px;
+            }
+            
+            .mobile-menu-btn {
+                font-size: 24px;
+            }
+            
+            .hero {
+                background-attachment: scroll;
+            }
+            
+            .hero-title {
+                font-size: 48px;
+            }
+            
+            .hero-subtitle {
+                font-size: 14px;
+                letter-spacing: 6px;
+            }
+            
+            .hero-desc {
+                font-size: 16px;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .features,
+            .pricing,
+            .contact {
+                padding: 60px 0;
+            }
+            
+            .section-title {
+                font-size: 36px;
+            }
+            
+            .features-grid,
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .cursor {
+                display: none;
+            }
+            
+            .preloader h1 {
+                font-size: 32px;
+            }
+            
+            .nav-links.active {
+                top: 70px;
+            }
+        }
+        
+        /* Small Mobile (480px and below) */
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 36px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .preloader h1 {
+                font-size: 28px;
+            }
+            
+            .nav-links.active a {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- PRELOADER -->
+<div class="preloader" id="preloader">
+    <div class="preloader-content">
+        <h1>BIZAUTOMATE</h1>
+        <p><span>PRO</span> SOLUTIONS</p>
+    </div>
+</div>
+
+<!-- CUSTOM CURSOR -->
+<div class="cursor" id="cursor"></div>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/919876543210?text=Hi,%20I'm%20interested%20in%20BizAutomate%20Pro" 
+   class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- NAVIGATION -->
+<nav class="navbar" id="navbar">
+    <a href="#" class="logo">
+        BIZ<span style="color: var(--cream);">AUTOMATE</span>
+        <span>PRO BUSINESS SOLUTIONS</span>
+    </a>
+    
+    <div class="nav-links" id="navLinks">
+        <a href="#home">HOME</a>
+        <a href="#features">FEATURES</a>
+        <a href="#pricing">PRICING</a>
+        <a href="#contact">CONTACT</a>
+    </div>
+    
+    <a href="#contact" class="book-btn">GET QUOTE</a>
+    <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <i class="fas fa-bars"></i>
+    </button>
+</nav>
+
+<!-- HERO SECTION -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <div class="hero-subtitle fade-in">WELCOME TO</div>
+        <h1 class="hero-title fade-in">
+            <span>BIZ</span>AUTOMATE PRO
+        </h1>
+        <div class="hero-year fade-in">ENTERPRISE SOLUTIONS</div>
+        <p class="hero-desc fade-in">
+            Custom-built business management software designed specifically for Indian enterprises. Streamline operations, boost productivity, and drive growth.
+        </p>
+        <div class="hero-buttons fade-in">
+            <a href="#contact" class="btn-primary">BOOK FREE DEMO</a>
+            <a href="#features" class="btn-secondary">EXPLORE FEATURES</a>
+        </div>
+    </div>
+</section>
+
+<!-- FEATURES SECTION -->
+<section class="features" id="features">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-subtitle">WHY CHOOSE US</div>
+            <h2 class="section-title">Powerful Features for Your Business</h2>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3 class="feature-title">Real-time Dashboard</h3>
+                <p>Monitor your business performance with interactive dashboards showing sales, inventory, and financial metrics in real-time.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-boxes"></i>
+                </div>
+                <h3 class="feature-title">Inventory Management</h3>
+                <p>Track stock levels, manage suppliers, automate reordering, and prevent stockouts with intelligent inventory control.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <h3 class="feature-title">Sales & Invoicing</h3>
+                <p>Create professional invoices, manage customer orders, track payments, and automate billing processes.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3 class="feature-title">Customer Relationship</h3>
+                <p>Build lasting relationships with customers through integrated CRM, support tickets, and communication tools.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                </div>
+                <h3 class="feature-title">Accounting & Finance</h3>
+                <p>Automate bookkeeping, generate financial reports, manage taxes, and maintain compliance with ease.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3 class="feature-title">Mobile App</h3>
+                <p>Access your business data anytime, anywhere with our dedicated mobile applications for iOS and Android.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PRICING SECTION -->
+<section class="pricing" id="pricing">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-subtitle">INVESTMENT PLANS</div>
+            <h2 class="section-title">Simple, Transparent Pricing</h2>
+        </div>
+        
+        <div class="pricing-grid">
+            <!-- Starter Plan -->
+            <div class="pricing-card">
+                <h3>STARTER</h3>
+                <div class="price">₹49,999<span>*</span></div>
+                <p style="color: rgba(255,255,255,0.5); margin-bottom: 20px;">Perfect for small businesses</p>
+                
+                <ul class="features-list">
+                    <li><i class="fas fa-check"></i> Basic Dashboard</li>
+                    <li><i class="fas fa-check"></i> Inventory Management</li>
+                    <li><i class="fas fa-check"></i> Sales & Invoicing</li>
+                    <li><i class="fas fa-check"></i> 5 User Accounts</li>
+                    <li><i class="fas fa-check"></i> 6 Months Support</li>
+                </ul>
+                
+                <a href="#contact" class="btn-primary">GET STARTED</a>
+            </div>
+            
+            <!-- Professional Plan -->
+            <div class="pricing-card">
+                <div class="popular-badge">MOST POPULAR</div>
+                <h3>PROFESSIONAL</h3>
+                <div class="price">₹99,999<span>*</span></div>
+                <p style="color: rgba(255,255,255,0.5); margin-bottom: 20px;">Ideal for growing businesses</p>
+                
+                <ul class="features-list">
+                    <li><i class="fas fa-check"></i> Everything in Starter</li>
+                    <li><i class="fas fa-check"></i> Advanced Analytics</li>
+                    <li><i class="fas fa-check"></i> CRM Integration</li>
+                    <li><i class="fas fa-check"></i> Unlimited Users</li>
+                    <li><i class="fas fa-check"></i> Mobile App Access</li>
+                    <li><i class="fas fa-check"></i> 1 Year Support</li>
+                </ul>
+                
+                <a href="#contact" class="btn-primary">GET PROFESSIONAL</a>
+            </div>
+            
+            <!-- Enterprise Plan -->
+            <div class="pricing-card">
+                <h3>ENTERPRISE</h3>
+                <div class="price">CUSTOM<span>*</span></div>
+                <p style="color: rgba(255,255,255,0.5); margin-bottom: 20px;">For large organizations</p>
+                
+                <ul class="features-list">
+                    <li><i class="fas fa-check"></i> Everything in Professional</li>
+                    <li><i class="fas fa-check"></i> Custom Development</li>
+                    <li><i class="fas fa-check"></i> API Integration</li>
+                    <li><i class="fas fa-check"></i> Dedicated Support</li>
+                    <li><i class="fas fa-check"></i> On-site Training</li>
+                    <li><i class="fas fa-check"></i> Priority Updates</li>
+                </ul>
+                
+                <a href="#contact" class="btn-primary">CONTACT SALES</a>
+            </div>
+        </div>
+        
+        <p style="text-align: center; margin-top: 30px; color: rgba(255,255,255,0.5); font-size: 14px;">
+            * One-time implementation fee. No monthly subscriptions.
+        </p>
+    </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section class="contact" id="contact">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-subtitle">GET IN TOUCH</div>
+            <h2 class="section-title">Start Your Journey</h2>
+        </div>
+        
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h2>Let's Discuss Your Project</h2>
+                
+                <div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>+91 7579066507</span>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>mohdusama275@gmail.com</span>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>WhatsApp Available</span>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Mon - Sat: 9:00 AM - 7:00 PM</span>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Serving All India</span>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <h3>Request Free Consultation</h3>
+                <form action="https://formspree.io/f/xbdaogak" method="POST">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="tel" name="phone" placeholder="Phone Number" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Email Address">
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="text" name="business" placeholder="Business Name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <select name="industry" required>
+                            <option value="">Select Industry</option>
+                            <option value="retail">Retail Store</option>
+                            <option value="manufacturing">Manufacturing</option>
+                            <option value="wholesale">Wholesale</option>
+                            <option value="services">Services</option>
+                            <option value="education">Education</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <textarea name="message" rows="4" placeholder="Tell us about your business needs" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i> SEND REQUEST
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>BIZAUTOMATE PRO</h3>
+                <p>Custom business solutions for Indian enterprises. We help businesses automate operations and achieve growth through technology.</p>
+                <p style="margin-top: 20px; color: rgba(255,255,255,0.5);">
+                    <i class="fas fa-map-marker-alt"></i> Serving All India
+                </p>
+            </div>
+            
+            <div class="footer-col">
+                <h3>QUICK LINKS</h3>
+                <p><a href="#home" style="color: rgba(255,255,255,0.7); text-decoration: none;">Home</a></p>
+                <p><a href="#features" style="color: rgba(255,255,255,0.7); text-decoration: none;">Features</a></p>
+                <p><a href="#pricing" style="color: rgba(255,255,255,0.7); text-decoration: none;">Pricing</a></p>
+                <p><a href="#contact" style="color: rgba(255,255,255,0.7); text-decoration: none;">Contact</a></p>
+            </div>
+            
+            <div class="footer-col">
+                <h3>INDUSTRIES</h3>
+                <p>Retail</p>
+                <p>Manufacturing</p>
+                <p>Wholesale</p>
+                <p>Services</p>
+                <p>Education</p>
+            </div>
+            
+            <div class="footer-col">
+                <h3>CONNECT</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 BizAutomate Pro. All rights reserved. | Made in India</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // CURSOR
+    if (window.innerWidth > 768) {
+        const cursor = document.getElementById('cursor');
+        document.addEventListener('mousemove', function(e) {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+    }
+    
+    // PRELOADER
+    window.addEventListener('load', function() {
+        setTimeout(() => {
+            document.getElementById('preloader').style.opacity = '0';
+            setTimeout(() => {
+                document.getElementById('preloader').style.display = 'none';
+            }, 1000);
+        }, 1500);
+    });
+    
+    // NAVBAR SCROLL
+    window.addEventListener('scroll', function() {
+        const navbar = document.getElementById('navbar');
+        if (window.scrollY > 100) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+    
+    // MOBILE MENU TOGGLE - FIXED VERSION
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+    
+    if (mobileMenuBtn && navLinks) {
+        mobileMenuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            navLinks.classList.toggle('active');
+            
+            const icon = this.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+                document.body.style.overflow = 'auto'; // Allow scrolling
+            }
+        });
+        
+        // Close menu when clicking on a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.classList.remove('active');
+                document.body.style.overflow = 'auto';
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!navLinks.contains(event.target) && 
+                !mobileMenuBtn.contains(event.target) && 
+                navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                document.body.style.overflow = 'auto';
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+    }
+    
+    // SMOOTH SCROLL
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                window.scrollTo({
+                    top: target.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
